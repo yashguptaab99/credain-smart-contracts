@@ -10,6 +10,7 @@ async function main() {
         "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
         hre.ethers.utils.parseEther("2")
     );
+    await CredainPayments.deployed();
     console.log("Deployed Implementation", CredainPayments.address);
 }
 
