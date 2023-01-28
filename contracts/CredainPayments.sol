@@ -5,7 +5,6 @@ pragma solidity ^0.8.0;
 import "./lib/CurrencyTransferLib.sol";
 
 contract CredainPayments {
-    
     address public sender;
     address public receiver;
     address public currency;
@@ -19,13 +18,12 @@ contract CredainPayments {
     // @notice 1st week -> amount
     mapping(uint256 => uint256) public everyWeekPayouts;
 
-
     /**
      * @notice public Function to mint NFTs
-     * @param _sender Token uri for the token to be minted  
-     * @param _receiver Token uri for the token to be minted  
-     * @param _currency Token uri for the token to be minted  
-     * @param _amountToPay Token uri for the token to be minted  
+     * @param _sender Token uri for the token to be minted
+     * @param _receiver Token uri for the token to be minted
+     * @param _currency Token uri for the token to be minted
+     * @param _amountToPay Token uri for the token to be minted
      */
     constructor(address _sender, address _receiver, address _currency, uint256 _amountToPay) {
         require(_sender != address(0), "Invalid sender");
@@ -41,12 +39,11 @@ contract CredainPayments {
         amountToPay = _amountToPay;
         remainingAmountToPay = amountToPay;
         withdrawableAmount = 0;
-
     }
 
     /**
-     * @notice Public functions which is used to withdraw funds of receiver   
-     * @param _amount Amount of funds need to withdraw  
+     * @notice Public functions which is used to withdraw funds of receiver
+     * @param _amount Amount of funds need to withdraw
      */
     function withdrawAmount(uint256 _amount) public {
         require(msg.sender == receiver, "Invalid wallet");
@@ -56,7 +53,7 @@ contract CredainPayments {
     }
 
     /**
-     * @notice Public functions which is used to claim the amount  
+     * @notice Public functions which is used to claim the amount
      */
     function claimAmount() public returns (bool) {
         // Stage 1 will automated by oracle as is it is dependent on market up conditions
@@ -84,7 +81,7 @@ contract CredainPayments {
     }
 
     /**
-     * @notice Internal functions which is used to initiate payouts for stage 1     
+     * @notice Internal functions which is used to initiate payouts for stage 1
      */
     function initiatePayoutStage1() public {
         require(msg.sender == designatedSigner, "Invalid call");
