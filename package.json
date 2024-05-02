@@ -14,6 +14,7 @@
         "coverage": "npx hardhat coverage --solcoverjs ./.solcover.js",
         "docgen": "npx solidity-docgen -i ./contracts -o ./docs -t docgen --solc-module solc -H docgen/helpers.js",
         "deploy:goerli": "npx hardhat run --network goerli scripts/deploy.js",
+        "deploy:fuji": "npx hardhat run --network fuji scripts/deploy.js",
         "upgrade:goerli": "npx hardhat run --network goerli scripts/update.js",
         "verify:goerli": "npx hardhat verify --network goerli --contract",
         "prepare": "npx husky install"
@@ -42,6 +43,8 @@
         "solidity-docgen": "^0.5.13"
     },
     "dependencies": {
+        "@openzeppelin/contracts": "^4.8.1",
+        "@openzeppelin/contracts-upgradeable": "^4.8.1",
         "dotenv": "^16.0.1"
     }
 }

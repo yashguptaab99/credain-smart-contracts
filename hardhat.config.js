@@ -9,6 +9,7 @@ require("dotenv").config();
 
 const MAINNET_RPC_URL = process.env.MAINNET_RPC_URL;
 const GOERLI_RPC_URL = process.env.GOERLI_RPC_URL;
+const FUJI_RPC_URL = process.env.FUJI_RPC_URL;
 const PRIVATE_KEY = process.env.PRIVATE_KEY;
 const MNEMONIC = process.env.MNEMONIC;
 const FORKING_BLOCK_NUMBER = process.env.FORKING_BLOCK_NUMBER;
@@ -39,6 +40,12 @@ module.exports = {
             // },
             saveDeployments: true,
             chainId: 5,
+        },
+        fuji: {
+            url: FUJI_RPC_URL,
+            accounts: PRIVATE_KEY !== undefined ? [PRIVATE_KEY] : [],
+            saveDeployments: true,
+            chainId: 43113,
         },
         mainnet: {
             url: MAINNET_RPC_URL,
